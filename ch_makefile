@@ -1,0 +1,12 @@
+CC = gcc
+TARGET = test
+CFLAGS = -g -Wall
+OBJECTS = test_stat.o trace.o common.o parse_config.o statistics.o
+
+all: $(TARGET)
+clean:
+	rm -f *.o $(TARGET) core
+$(TARGET): $(OBJECTS)
+	$(CC) -o $(TARGET) $(CFLAGS) $(OBJECTS)
+.c.o:
+	$(CC) -c $(CFLAGS) $<
